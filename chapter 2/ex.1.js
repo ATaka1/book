@@ -6,7 +6,7 @@
 //
 // }
 let hash = "#";
-for (let num = 1; num < 7; num++) {
+for (let num = 0; num < 7; num++) {
     console.log(hash);
     hash += "#";
 }
