@@ -4,11 +4,10 @@ function deepEqual(x, y) {
     }
 
     if (typeof x === 'object' && x !== null && typeof y === 'object' && y !== null){
-        let xKeys = Object.keys(x);
-        let yKeys = Object.keys(y);
-
-        if(xKeys.length !== yKeys.length) {
-            return false;
+        for (let prop in x) {
+            if(y.hasOwnProperty(prop)) {
+                deepEqual(x[prop], y[prop]);
+            }
         }
     }
     return true;
@@ -16,5 +15,5 @@ function deepEqual(x, y) {
 
 let obj = {here: {is: "an"}, object: 2};
 // console.log(deepEqual(obj, obj));
-// console.log(deepEqual(obj, {here: 1, object: 2}));
-console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
+console.log(deepEqual(obj, {here: 1, object: 2}));
+// console.log(deepEqual(obj, {here: {is: "an"}, object: 2}));
